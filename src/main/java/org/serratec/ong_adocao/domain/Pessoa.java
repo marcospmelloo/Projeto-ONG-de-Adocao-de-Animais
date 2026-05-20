@@ -3,6 +3,7 @@ package org.serratec.ong_adocao.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa")
@@ -23,6 +24,28 @@ public class Pessoa {
 
     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+
+    @OneToOne(mappedBy = "pessoa")
+    private Endereco endereco;
+
+    @OneToMany(mappedBy = "pessoa")
+    private List<InteresseAdocao> interesseAdocao;
+
+    public List<InteresseAdocao> getInteresseAdocao() {
+        return interesseAdocao;
+    }
+
+    public void setInteresseAdocao(List<InteresseAdocao> interesseAdocao) {
+        this.interesseAdocao = interesseAdocao;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
     public Long getId() {
         return id;

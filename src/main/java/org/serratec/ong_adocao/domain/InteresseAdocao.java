@@ -16,6 +16,30 @@ public class InteresseAdocao {
 
     private String observacao;
 
+    @ManyToOne
+    @JoinColumn(name = "id_pessoa")
+    private Pessoa pessoa;
+
+    @ManyToOne
+    @JoinColumn(name = "id_animal")
+    private Animal animal;
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     public Long getId() {
         return id;
     }

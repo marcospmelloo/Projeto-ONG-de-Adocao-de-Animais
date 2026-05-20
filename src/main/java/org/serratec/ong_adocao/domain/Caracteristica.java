@@ -2,6 +2,8 @@ package org.serratec.ong_adocao.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "caracteristica")
 public class Caracteristica {
@@ -16,6 +18,19 @@ public class Caracteristica {
     private String historico;
 
     private String observacao;
+
+    @ManyToMany @JoinTable(name = "animal_caracteristica",
+    joinColumns = @JoinColumn(name = "id_caracteristica"),
+    inverseJoinColumns = @JoinColumn(name = "id_animal"))
+    private List<Animal> animal;
+
+    public List<Animal> getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(List<Animal> animal) {
+        this.animal = animal;
+    }
 
     public Long getId() {
         return id;
