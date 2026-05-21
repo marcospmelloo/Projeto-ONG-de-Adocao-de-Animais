@@ -4,6 +4,8 @@ import org.serratec.ong_adocao.domain.Endereco;
 import org.serratec.ong_adocao.domain.Pessoa;
 import org.serratec.ong_adocao.dto.EnderecoDTORequest;
 import org.serratec.ong_adocao.dto.EnderecoDTOResponse;
+import org.serratec.ong_adocao.exception.DuplicateEntryException;
+import org.serratec.ong_adocao.exception.ResourceNotFoundException;
 import org.serratec.ong_adocao.repository.EnderecoRepository;
 import org.serratec.ong_adocao.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

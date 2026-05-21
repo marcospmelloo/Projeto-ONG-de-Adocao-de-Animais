@@ -5,6 +5,8 @@ import org.serratec.ong_adocao.domain.InteresseAdocao;
 import org.serratec.ong_adocao.domain.Pessoa;
 import org.serratec.ong_adocao.dto.InteresseAdocaoDTORequest;
 import org.serratec.ong_adocao.dto.InteresseAdocaoDTOResponse;
+import org.serratec.ong_adocao.exception.DuplicateEntryException;
+import org.serratec.ong_adocao.exception.ResourceNotFoundException;
 import org.serratec.ong_adocao.repository.AnimalRepository;
 import org.serratec.ong_adocao.repository.InteresseAdocaoRepository;
 import org.serratec.ong_adocao.repository.PessoaRepository;

@@ -4,6 +4,7 @@ import org.serratec.ong_adocao.domain.Animal;
 import org.serratec.ong_adocao.domain.Caracteristica;
 import org.serratec.ong_adocao.dto.AnimalDTORequest;
 import org.serratec.ong_adocao.dto.AnimalDTOResponse;
+import org.serratec.ong_adocao.exception.ResourceNotFoundException;
 import org.serratec.ong_adocao.repository.AnimalRepository;
 import org.serratec.ong_adocao.repository.CaracteristicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

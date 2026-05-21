@@ -6,6 +6,7 @@ import org.serratec.ong_adocao.dto.AnimalDTORequest;
 import org.serratec.ong_adocao.dto.AnimalDTOResponse;
 import org.serratec.ong_adocao.dto.CaracteristicaDTORequest;
 import org.serratec.ong_adocao.dto.CaracteristicaDTOResponse;
+import org.serratec.ong_adocao.exception.ResourceNotFoundException;
 import org.serratec.ong_adocao.repository.AnimalRepository;
 import org.serratec.ong_adocao.repository.CaracteristicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@ public class CaracteristicaService {
     }
 
     private CaracteristicaDTOResponse toResponse(Caracteristica caracteristica) {
-        CaracteristicaDTOResponse caracteristicaResponse = new AnimalDTOResponse();
+        CaracteristicaDTOResponse caracteristicaResponse = new CaracteristicaDTOResponse();
         caracteristicaResponse.setId(caracteristica.getId());
         caracteristicaResponse.setHistorico(caracteristica.getHistorico());
         caracteristicaResponse.setComportamento(caracteristica.getComportamento());
