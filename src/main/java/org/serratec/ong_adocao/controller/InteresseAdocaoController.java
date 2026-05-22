@@ -1,5 +1,7 @@
 package org.serratec.ong_adocao.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.serratec.ong_adocao.dto.AnimalDTORequest;
 import org.serratec.ong_adocao.dto.AnimalDTOResponse;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Interesse Adoção", description = "Cadastro de interesses de adoção")
 @RestController
 @RequestMapping("/interesses")
 public class InteresseAdocaoController {
@@ -20,27 +23,32 @@ public class InteresseAdocaoController {
     @Autowired
     private InteresseAdocaoService interesseService;
 
+    @Operation(summary = "Listar todos os interesses de adoção", description = "Retorna uma lista com todos os interesses de adoção cadastrados")
     @GetMapping
     public ResponseEntity<List<InteresseAdocaoDTOResponse>> listarInteresses(){
         return ResponseEntity.ok(interesseService.listarInteresses());
     }
 
+    @Operation(summary = "Buscar interesse de adoção por ID", description = "Retorna um interesse de adoção específico pelo ID")
     @GetMapping("/{id}")
     public ResponseEntity<InteresseAdocaoDTOResponse> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(interesseService.buscarPorId(id));
     }
 
+    @Operation(summary = "Cadastrar interesse de adoção", description = "Cadastra um novo interesse de adoção no sistema")
     @PostMapping
     public ResponseEntity<InteresseAdocaoDTOResponse> criarInteresse(@Valid @RequestBody InteresseAdocaoDTORequest interesseRequest) {
         return ResponseEntity.status(201).body(interesseService.criarInteresse(interesseRequest));
     }
 
+    @Operation(summary = "Atualizar interesse de adoção", description = "Atualiza os dados de um interesse de adoção existente")
     @PutMapping("/{id}")
     public ResponseEntity<InteresseAdocaoDTOResponse> atualizarInteresse
             (@PathVariable Long id, @Valid @RequestBody InteresseAdocaoDTORequest interesseRequest) {
         return ResponseEntity.ok(interesseService.atualizarInteresse(id, interesseRequest));
     }
 
+    @Operation(summary = "Deletar interesse de adoção", description = "Remove um interesse de adoção do sistema")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarInteresse(@PathVariable Long id) {
         interesseService.deletarInteresse(id);

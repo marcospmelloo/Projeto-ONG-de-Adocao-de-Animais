@@ -25,7 +25,7 @@ public class OpenAPIConfig {
                 .title("API de ONG de Adoção de Animais")
                 .version("1.0")
                 .contact(contato)
-                .description("API para uma ONG de adoção de animais.")
+                .description("API criada para uma ONG de adoção de animais.")
                 .termsOfService("https://serratec.org.br")
                 .license(apacheLicense);
 
