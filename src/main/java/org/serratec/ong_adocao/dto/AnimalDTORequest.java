@@ -1,5 +1,6 @@
 package org.serratec.ong_adocao.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -13,32 +14,59 @@ import java.util.List;
 
 public class AnimalDTORequest {
 
+    @Schema(description = "Nome", example = "Spike")
     @NotBlank(message = "O nome não deve estar vazio.")
     private String nome;
 
+    @Schema(description = "Espécie do animal", example = "Cachorro")
     @NotNull(message = "Deve conter uma espécie.")
     private Especie especie;
 
+    @Schema(description = "Porte do animal", example = "GRANDE")
     @NotNull(message = "Deve conter um tipo de porte.")
     private Porte porte;
 
+    @Schema(description = "Raça", example = "Labrador")
     private String raca;
 
+    @Schema(description = "Idade do animal", example = "5")
     @NotNull(message = "Deve conter uma idade.")
     @Positive(message = "A idade deve ser um número positivo.")
     private Integer idade;
 
+    @Schema(description = "Sexo do animal", example = "MACHO")
     @NotNull(message = "Deve conter um sexo.")
     private Sexo sexo;
 
+    @Schema(description = "Status do animal", example = "DISPONIVEL")
     @NotNull(message = "O animal deve conter um status.")
     private StatusAnimal statusAnimal;
 
+    @Schema(description = "Animal vacinado", example = "true")
     @NotNull(message = "É necessário informar se o animal é vacinado ou não.")
     private Boolean vacinado;
 
+    @Schema(description = "Observações sobre o animal", example = "Animal dócil e brincalhão")
     @Size(max = 100, message = "A observação deve conter no máx. 100 caracteres.")
     private String observacao;
+
+    public AnimalDTORequest() {
+    }
+
+    public AnimalDTORequest(String nome, Especie especie, Porte porte, String raca, Integer idade,
+                            Sexo sexo, StatusAnimal statusAnimal, Boolean vacinado, String observacao,
+                            List<Long> idCaracteristicas) {
+        this.nome = nome;
+        this.especie = especie;
+        this.porte = porte;
+        this.raca = raca;
+        this.idade = idade;
+        this.sexo = sexo;
+        this.statusAnimal = statusAnimal;
+        this.vacinado = vacinado;
+        this.observacao = observacao;
+        this.idCaracteristicas = idCaracteristicas;
+    }
 
     private List<Long> idCaracteristicas;
 
