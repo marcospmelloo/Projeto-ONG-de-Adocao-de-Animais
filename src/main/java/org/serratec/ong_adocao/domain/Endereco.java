@@ -1,5 +1,6 @@
 package org.serratec.ong_adocao.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,6 +28,7 @@ public class Endereco {
 
     @OneToOne
     @JoinColumn(name = "id_pessoa")
+    @JsonManagedReference
     private Pessoa pessoa;
 
     public Pessoa getPessoa() {

@@ -1,5 +1,7 @@
 package org.serratec.ong_adocao.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.serratec.ong_adocao.domain.enumerations.Especie;
 import org.serratec.ong_adocao.domain.enumerations.Porte;
@@ -36,10 +38,14 @@ public class Animal {
     private String observacao;
 
     @OneToMany(mappedBy = "animal")
+    @JsonBackReference
     private List<InteresseAdocao> interesseAdocao;
 
-    @ManyToMany(mappedBy = "animal")
-    private List<Caracteristica> caracteristicas;
+    @ManyToMany @JoinTable(name = "animal_caracteristica",
+    joinColumns = @JoinColumn(name = "id_animal"),
+    inverseJoinColumns = @JoinColumn(name = "id_caracteristica"))
+    @JsonManagedReference
+    private List<Caracteristica> caracteristicas;;
 
     public List<Caracteristica> getCaracteristicas() {
         return caracteristicas;

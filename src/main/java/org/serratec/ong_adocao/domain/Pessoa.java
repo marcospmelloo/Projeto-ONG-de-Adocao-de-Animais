@@ -1,5 +1,6 @@
 package org.serratec.ong_adocao.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -26,9 +27,11 @@ public class Pessoa {
     private LocalDate dataNascimento;
 
     @OneToOne(mappedBy = "pessoa")
+    @JsonBackReference
     private Endereco endereco;
 
     @OneToMany(mappedBy = "pessoa")
+    @JsonBackReference
     private List<InteresseAdocao> interesseAdocao;
 
     public List<InteresseAdocao> getInteresseAdocao() {

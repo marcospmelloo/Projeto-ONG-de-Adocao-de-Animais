@@ -1,5 +1,6 @@
 package org.serratec.ong_adocao.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.serratec.ong_adocao.domain.enumerations.StatusInteresse;
 
@@ -18,10 +19,12 @@ public class InteresseAdocao {
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa")
+    @JsonManagedReference
     private Pessoa pessoa;
 
     @ManyToOne
     @JoinColumn(name = "id_animal")
+    @JsonManagedReference
     private Animal animal;
 
     public Animal getAnimal() {
