@@ -4,9 +4,17 @@ API REST desenvolvida para gerenciamento de uma ONG de adoção de animais, perm
 
 ---
 
+# 👨‍💻 Desenvolvedor
+
+## Marcos Paulo
+
+Projeto desenvolvido individualmente com foco em boas práticas no desenvolvimento de APIs REST utilizando Java e Spring Boot.
+
+---
+
 # 📚 Sobre o Projeto
 
-O sistema foi desenvolvido com foco em organização arquitetural, boas práticas no desenvolvimento de APIs REST utilizando Spring Boot.
+O sistema foi desenvolvido com foco em organização arquitetural, boas práticas de desenvolvimento e separação em camadas utilizando Spring Boot.
 
 A aplicação permite:
 
@@ -168,6 +176,14 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
+# 🖼️ Swagger da Aplicação
+
+## Tela principal da documentação
+
+![Swagger](swagger.png)
+
+---
+
 # 🛠️ Como Executar o Projeto
 
 ## 1️⃣ Clonar o repositório
@@ -195,7 +211,6 @@ Criar um banco PostgreSQL e configurar o:
 ```properties
 application.properties
 ```
-
 ---
 
 ## 4️⃣ Executar o projeto
@@ -206,24 +221,104 @@ Rodar a aplicação Spring Boot.
 
 # 📬 Exemplos de Endpoints
 
-## Animal
+## 🐾 Animal
+
+### Listar animais
 
 ```http
 GET /animais
-POST /animais
-PUT /animais/{id}
-DELETE /animais/{id}
 ```
 
 ---
 
-## Pessoa
+### Buscar animal por ID
 
 ```http
-GET /pessoas
+GET /animais/1
+```
+
+---
+
+### Cadastrar animal
+
+```http
+POST /animais
+```
+
+### Body
+
+```json
+{
+  "nome": "Rex",
+  "especie": "CACHORRO",
+  "raca": "Labrador",
+  "idade": 5,
+  "sexo": "MACHO",
+  "porte": "GRANDE",
+  "statusAnimal": "DISPONIVEL",
+  "vacinado": true,
+  "observacao": "Animal dócil",
+  "idCaracteristicas": [1, 2]
+}
+```
+
+---
+
+### Atualizar animal
+
+```http
+PUT /animais/1
+```
+
+---
+
+### Deletar animal
+
+```http
+DELETE /animais/1
+```
+
+---
+
+## 👤 Pessoa
+
+### Cadastrar pessoa
+
+```http
 POST /pessoas
-PUT /pessoas/{id}
-DELETE /pessoas/{id}
+```
+
+### Body
+
+```json
+{
+  "nome": "Marcos Paulo",
+  "cpf": "12345678909",
+  "email": "marcos@email.com",
+  "telefone": "22999999999",
+  "dataNascimento": "2005-08-15"
+}
+```
+
+---
+
+## ❤️ Interesse de Adoção
+
+### Registrar interesse
+
+```http
+POST /interesses
+```
+
+### Body
+
+```json
+{
+  "idPessoa": 1,
+  "idAnimal": 1,
+  "interesse": "APROVADO",
+  "observacao": "Possui espaço adequado para o animal"
+}
 ```
 
 ---
@@ -240,6 +335,18 @@ DELETE /pessoas/{id}
 
 ---
 
+# 📝 Observações
+
+- O projeto foi desenvolvido com foco em aprendizado e aplicação prática de conceitos de API REST.
+- Toda a aplicação foi estruturada utilizando boas práticas de separação em camadas.
+- O Swagger foi utilizado para documentação completa dos endpoints.
+- As validações foram implementadas utilizando Bean Validation.
+- O tratamento de exceções foi centralizado utilizando `@RestControllerAdvice`.
+
+---
+
 # 👨‍💻 Autor
 
-Desenvolvido por Marcos Paulo.
+## Marcos Paulo
+
+Desenvolvido para fins acadêmicos e prática de desenvolvimento backend com Spring Boot.
