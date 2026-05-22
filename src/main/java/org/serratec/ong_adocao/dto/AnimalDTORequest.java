@@ -24,7 +24,7 @@ public class AnimalDTORequest {
 
     private String raca;
 
-    @NotBlank(message = "Deve conter uma idade.")
+    @NotNull(message = "Deve conter uma idade.")
     @Positive(message = "A idade deve ser um número positivo.")
     private Integer idade;
 

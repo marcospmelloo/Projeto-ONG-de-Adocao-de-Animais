@@ -1,10 +1,7 @@
 package org.serratec.ong_adocao.dto;
 
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
@@ -26,7 +23,7 @@ public class PessoaDTORequest {
     @Pattern(regexp = "\\d{11}", message = "O telefone deve conter 11 dígitos.")
     private String telefone;
 
-    @NotBlank(message = "Deve conter a data de nascimento.")
+    @NotNull(message = "Deve conter a data de nascimento.")
     @Past(message = "A data deve estar no passado.")
     private LocalDate dataNascimento;
 

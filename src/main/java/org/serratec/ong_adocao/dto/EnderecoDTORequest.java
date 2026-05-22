@@ -1,6 +1,7 @@
 package org.serratec.ong_adocao.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -27,7 +28,7 @@ public class EnderecoDTORequest {
     @NotBlank(message = "Deve conter o CEP.")
     private String cep;
 
-    @NotBlank(message = "O id da pessoa moradora é obrigatório.")
+    @NotNull(message = "O id da pessoa moradora é obrigatório.")
     private Long idPessoa;
 
     public String getLogradouro() {

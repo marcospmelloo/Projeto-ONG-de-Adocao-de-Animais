@@ -1,21 +1,22 @@
 package org.serratec.ong_adocao.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.serratec.ong_adocao.domain.enumerations.StatusInteresse;
 
 public class InteresseAdocaoDTORequest {
 
-    @NotBlank(message = "Deve conter o status de interesse.")
+    @NotNull(message = "Deve conter o status de interesse.")
     private StatusInteresse interesse;
 
     @Size(max = 250, message = "A observação deve conter no máximo 250 caracteres.")
     private String observacao;
 
-    @NotBlank(message = "Deve conter o id da pessoa.")
+    @NotNull(message = "Deve conter o id da pessoa.")
     private Long idPessoa;
 
-    @NotBlank(message = "Deve conter o id do animal.")
+    @NotNull(message = "Deve conter o id do animal.")
     private Long idAnimal;
 
     public StatusInteresse getInteresse() {

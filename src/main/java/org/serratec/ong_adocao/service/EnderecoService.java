@@ -36,7 +36,7 @@ public class EnderecoService {
     public EnderecoDTOResponse criarEndereco(EnderecoDTORequest enderecoRequest) {
         Pessoa pessoa = pessoaRepository.findById(enderecoRequest.getIdPessoa()).orElseThrow(() -> new ResourceNotFoundException("Pessoa não encontrada com id"));
 
-        if (enderecoRepository.existsByPessoaid(enderecoRequest.getIdPessoa())) {
+        if (enderecoRepository.existsByPessoaId(enderecoRequest.getIdPessoa())) {
             throw new DuplicateEntryException("Pessoa já possui endereço cadastrado");
         }
 
